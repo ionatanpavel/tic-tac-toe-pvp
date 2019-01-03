@@ -1,8 +1,6 @@
-
 var atr = 1, vec = [-1, -1, -1,-1, -1, -1,-1, -1, -1], wX = 0, w0 = 0;
 
 function randomReset() {
-  //when cliced on Reset button
   var i;
   for (i = 0; i <= 8; i ++)  {
     vec[i] = -1;
@@ -22,33 +20,26 @@ function randomReset() {
 }
 
 function check() {
-
   var sum = rowsCheck() + colsCheck() + diagPrincCheck() + diagSecCheck();
   var a = allCheck();
-
   if (sum == 0 && a == 1) {
     duplicateShow();
-    //duplicateShow();
     showDraw();
     setTimeout(reset, 0);
   }
   if (sum == 1) {
     if (wX == 1) {
       duplicateShow();
-      //duplicateShow();
       showX();
       setTimeout(reset, 0);
     }
     if (w0 == 1) {
       duplicateShow();
-      //duplicateShow();
       show0();
       setTimeout(reset, 0);
     }
   }
 }
-
-
 
 function duplicateShow() {
   var x = document.getElementsByClassName('text2');
@@ -62,7 +53,6 @@ function duplicateHide() {
 }
 
 function rowsCheck() {
-  //return  1 if there is any vinner row
   var i, ok = 0;
   for (i = 0; i <= 6; i += 3) {
     var y = vec[i];
@@ -78,12 +68,10 @@ function rowsCheck() {
       }
       }
     }
-    //document.getElementById('demo1').innerHTML ="rows " + ok;
     return ok;
 }
 
 function colsCheck() {
-  //return  1 if there is any vinner column
   var i, ok = 0;
   for (i = 0; i <= 2; i += 1) {
     y = vec[i];
@@ -100,23 +88,19 @@ function colsCheck() {
 
     }
   }
-   //document.getElementById('demo2').innerHTML = "columns " + ok;
-    return ok;
+   return ok;
 }
 
 function allCheck() {
-  //returns 1 if every cell has been clicked
   var i, ok = 1;
   for (i = 0; i <= 8; i += 1) {
     if (vec[i] == -1)
       ok = 0;
     }
-    //document.getElementById('demo3').innerHTML ="All " + ok;
-    return ok;
+   return ok;
 }
 
 function diagPrincCheck() {
-  //returns 1 if principal diagonal is winner
   var ok = 0;
   if (vec[0] == vec[4] && vec[0] == vec[8] && vec[0] != -1)
     ok = 1;
@@ -128,12 +112,10 @@ function diagPrincCheck() {
       w0 = 1;
     }
   }
-  //document.getElementById("demo4").innerHTML = "diagPrinc " + ok;
   return ok;
 }
 
 function diagSecCheck() {
-  //returns 1 if principal diagonal is winner
   var ok = 0;
   if (vec[2] == vec[4] && vec[2] == vec[6] && vec[2] != -1)
     ok = 1;
@@ -145,7 +127,6 @@ function diagSecCheck() {
       w0 = 1;
     }
   }
-//document.getElementById("demo5").innerHTML = "diagSec " + ok;
   return ok;
 }
 
@@ -153,7 +134,6 @@ function diagSecCheck() {
 function reset() {
 setTimeout(duplicateHide, 3000);
   var i;
-
   for (i = 0; i <= 8; i ++)  {
     vec[i] = -1;
   }
