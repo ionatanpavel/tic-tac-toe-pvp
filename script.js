@@ -27,7 +27,7 @@ function check() {
     showDraw();
     setTimeout(reset, 0);
   }
-  if (sum == 1) {
+  if (sum != 0) {
     if (wX == 1) {
       duplicateShow();
       showX();
